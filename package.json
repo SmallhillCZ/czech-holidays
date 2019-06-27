@@ -1,0 +1,27 @@
+{
+  "name": "czech-holidays",
+  "version": "1.0.2",
+  "main": "index.js",
+  "author": "Martin Kopeček <martin.kopecek@smallhill.cz>",
+  "license": "GPL-3.0-or-later",
+  "description": "A function to return public holidays in the Czech Republic in the specified year.",
+  "keywords": [
+    "holidays",
+    "czech"
+  ],
+  "devDependencies": {
+    "typescript": "^3.5.2"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmallhillCZ/czech-holidays.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SmallhillCZ/czech-holidays/issues"
+  },
+  "homepage": "https://github.com/SmallhillCZ/czech-holidays#readme"
+}
