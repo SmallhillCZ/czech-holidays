@@ -3,3 +3,4 @@ node_modules
 
 # compiled output
 index.js
+index.d.ts
