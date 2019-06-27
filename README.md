@@ -12,7 +12,7 @@ const holidays2020 = CzechHolidays(2020);
 
 ```
 
-Typescript
+TypeScript
 ```typescript
 
 import { CzechHolidays, HolidayDate } from "czech-holidays";
