@@ -31,8 +31,8 @@ export function CzechHolidays(year: number): HolidayDate[] {
   const easterMondayDate = new Date(year, easterSunday.m - 1, easterSunday.d);
   easterMondayDate.setDate(easterMondayDate.getDate() + 1);
 
-  holidays.push({ m: easterFridayDate.getMonth() + 1, d: easterFridayDate.getDate() });
-  holidays.push({ m: easterMondayDate.getMonth() + 1, d: easterMondayDate.getDate() });
+  holidays.push({ d: easterFridayDate.getDate(), m: easterFridayDate.getMonth() + 1 });
+  holidays.push({ d: easterMondayDate.getDate(), m: easterMondayDate.getMonth() + 1 });
 
   holidays.sort((a, b) => a.m - b.m || a.d - b.d);
 
