@@ -1,3 +1,6 @@
 node_modules
 index.ts
 tsconfig.json
+tsconfig.esm.json
+tsconfig.cjs.json
+scripts
