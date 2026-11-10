@@ -1,6 +1,6 @@
 {
   "name": "czech-holidays",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "main": "index.js",
   "author": "Martin Kopeček <martin.kopecek@smallhill.cz>",
   "license": "GPL-3.0-or-later",

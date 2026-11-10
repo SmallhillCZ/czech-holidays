@@ -1,9 +1,21 @@
-export type HolidayDate = { d: number, m: number };
+export type HolidayDate = { d: number, m: number, name: string };
 
-const holidayDates: HolidayDate[] = [{ d: 1, m: 1 }, { d: 1, m: 5 }, { d: 8, m: 5 }, { d: 5, m: 7 }, { d: 6, m: 7 }, { d: 28, m: 9 }, { d: 28, m: 10 }, { d: 17, m: 11 }, { d: 24, m: 12 }, { d: 25, m: 12 }, { d: 26, m: 12 }];
+const holidayDates: HolidayDate[] = [
+  { d: 1, m: 1, name: "Den obnovy samostatného českého státu a Nový rok" },
+  { d: 1, m: 5, name: "Svátek práce" },
+  { d: 8, m: 5, name: "Den vítězství" },
+  { d: 5, m: 7, name: "Den slovanských věrozvěstů Cyrila a Metoděje" },
+  { d: 6, m: 7, name: "Den upálení mistra Jana Husa" },
+  { d: 28, m: 9, name: "Den české státnosti" },
+  { d: 28, m: 10, name: "Den vzniku samostatného československého státu" },
+  { d: 17, m: 11, name: "Den boje za svobodu a demokracii a Mezinárodní den studentstva" },
+  { d: 24, m: 12, name: "Štědrý den" },
+  { d: 25, m: 12, name: "1. svátek vánoční" },
+  { d: 26, m: 12, name: "2. svátek vánoční" }
+];
 
 // https://gist.github.com/johndyer/0dffbdd98c2046f41180c051f378f343
-function getEaster(year: number): HolidayDate {
+function getEaster(year: number): { d: number, m: number } {
   var f = Math.floor,
     // Golden Number - 1
     G = year % 19,
@@ -31,8 +43,8 @@ export function CzechHolidays(year: number): HolidayDate[] {
   const easterMondayDate = new Date(year, easterSunday.m - 1, easterSunday.d);
   easterMondayDate.setDate(easterMondayDate.getDate() + 1);
 
-  holidays.push({ d: easterFridayDate.getDate(), m: easterFridayDate.getMonth() + 1 });
-  holidays.push({ d: easterMondayDate.getDate(), m: easterMondayDate.getMonth() + 1 });
+  holidays.push({ d: easterFridayDate.getDate(), m: easterFridayDate.getMonth() + 1, name: "Velký pátek" });
+  holidays.push({ d: easterMondayDate.getDate(), m: easterMondayDate.getMonth() + 1, name: "Velikonoční pondělí" });
 
   holidays.sort((a, b) => a.m - b.m || a.d - b.d);
 
