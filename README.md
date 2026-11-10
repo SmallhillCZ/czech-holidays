@@ -2,22 +2,24 @@
 
 A function that lists public holidays in the Czech Republic in the specified year.
 
+The package ships both ES module and CommonJS builds, so it works with modern
+bundlers (Angular, Vite, webpack, esbuild) without CommonJS optimization
+bailouts, as well as with `require()`.
+
 ## Usage
 
-JavaScript
+ES modules / TypeScript
+```typescript
+import { CzechHolidays, HolidayDate } from "czech-holidays";
+
+const holidays2020: HolidayDate[] = CzechHolidays(2020);
+```
+
+CommonJS
 ```javascript
 const { CzechHolidays } = require("czech-holidays");
 
 const holidays2020 = CzechHolidays(2020);
-
-```
-
-TypeScript
-```typescript
-
-import { CzechHolidays, HolidayDate } from "czech-holidays";
-
-const holidays2020: HolidayDate[] = CzechHolidays(2020);
 ```
 
 ## Output

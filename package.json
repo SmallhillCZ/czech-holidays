@@ -1,7 +1,20 @@
 {
   "name": "czech-holidays",
   "version": "1.1.0",
-  "main": "index.js",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "author": "Martin Kopeček <martin.kopecek@smallhill.cz>",
   "license": "GPL-3.0-or-later",
   "description": "A function to return public holidays in the Czech Republic in the specified year.",
@@ -10,11 +23,15 @@
     "czech"
   ],
   "devDependencies": {
-    "typescript": "^3.5.2"
+    "typescript": "^5.4.5"
   },
   "dependencies": {},
   "scripts": {
-    "prepublishOnly": "tsc -p .",
+    "build": "npm run build:esm && npm run build:cjs && npm run build:markers",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:markers": "node scripts/write-markers.cjs",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
