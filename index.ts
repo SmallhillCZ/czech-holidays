@@ -1,17 +1,19 @@
-export type HolidayDate = { d: number, m: number, name: string, nameEn: string };
+export type HolidayLanguage = "cs" | "en";
+
+export type HolidayDate = { d: number, m: number, name: Record<HolidayLanguage, string> };
 
 const holidayDates: HolidayDate[] = [
-  { d: 1, m: 1, name: "Den obnovy samostatného českého státu a Nový rok", nameEn: "Restoration Day of the Independent Czech State and New Year's Day" },
-  { d: 1, m: 5, name: "Svátek práce", nameEn: "Labour Day" },
-  { d: 8, m: 5, name: "Den vítězství", nameEn: "Victory Day" },
-  { d: 5, m: 7, name: "Den slovanských věrozvěstů Cyrila a Metoděje", nameEn: "Saints Cyril and Methodius Day" },
-  { d: 6, m: 7, name: "Den upálení mistra Jana Husa", nameEn: "Jan Hus Day" },
-  { d: 28, m: 9, name: "Den české státnosti", nameEn: "Czech Statehood Day" },
-  { d: 28, m: 10, name: "Den vzniku samostatného československého státu", nameEn: "Independent Czechoslovak State Day" },
-  { d: 17, m: 11, name: "Den boje za svobodu a demokracii a Mezinárodní den studentstva", nameEn: "Struggle for Freedom and Democracy Day and International Students' Day" },
-  { d: 24, m: 12, name: "Štědrý den", nameEn: "Christmas Eve" },
-  { d: 25, m: 12, name: "1. svátek vánoční", nameEn: "Christmas Day" },
-  { d: 26, m: 12, name: "2. svátek vánoční", nameEn: "St. Stephen's Day" }
+  { d: 1, m: 1, name: { cs: "Den obnovy samostatného českého státu a Nový rok", en: "Restoration Day of the Independent Czech State and New Year's Day" } },
+  { d: 1, m: 5, name: { cs: "Svátek práce", en: "Labour Day" } },
+  { d: 8, m: 5, name: { cs: "Den vítězství", en: "Victory Day" } },
+  { d: 5, m: 7, name: { cs: "Den slovanských věrozvěstů Cyrila a Metoděje", en: "Saints Cyril and Methodius Day" } },
+  { d: 6, m: 7, name: { cs: "Den upálení mistra Jana Husa", en: "Jan Hus Day" } },
+  { d: 28, m: 9, name: { cs: "Den české státnosti", en: "Czech Statehood Day" } },
+  { d: 28, m: 10, name: { cs: "Den vzniku samostatného československého státu", en: "Independent Czechoslovak State Day" } },
+  { d: 17, m: 11, name: { cs: "Den boje za svobodu a demokracii a Mezinárodní den studentstva", en: "Struggle for Freedom and Democracy Day and International Students' Day" } },
+  { d: 24, m: 12, name: { cs: "Štědrý den", en: "Christmas Eve" } },
+  { d: 25, m: 12, name: { cs: "1. svátek vánoční", en: "Christmas Day" } },
+  { d: 26, m: 12, name: { cs: "2. svátek vánoční", en: "St. Stephen's Day" } }
 ];
 
 // https://gist.github.com/johndyer/0dffbdd98c2046f41180c051f378f343
@@ -43,8 +45,8 @@ export function CzechHolidays(year: number): HolidayDate[] {
   const easterMondayDate = new Date(year, easterSunday.m - 1, easterSunday.d);
   easterMondayDate.setDate(easterMondayDate.getDate() + 1);
 
-  holidays.push({ d: easterFridayDate.getDate(), m: easterFridayDate.getMonth() + 1, name: "Velký pátek", nameEn: "Good Friday" });
-  holidays.push({ d: easterMondayDate.getDate(), m: easterMondayDate.getMonth() + 1, name: "Velikonoční pondělí", nameEn: "Easter Monday" });
+  holidays.push({ d: easterFridayDate.getDate(), m: easterFridayDate.getMonth() + 1, name: { cs: "Velký pátek", en: "Good Friday" } });
+  holidays.push({ d: easterMondayDate.getDate(), m: easterMondayDate.getMonth() + 1, name: { cs: "Velikonoční pondělí", en: "Easter Monday" } });
 
   holidays.sort((a, b) => a.m - b.m || a.d - b.d);
 
