@@ -1,0 +1,13 @@
+{
+    "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+    "name": "Czech Holidays Development Container",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "postCreateCommand": "./.devcontainer/post-create.sh",
+    "customizations": {
+        "vscode": {
+            "extensions": ["esbenp.prettier-vscode"]
+        }
+    }
+}
